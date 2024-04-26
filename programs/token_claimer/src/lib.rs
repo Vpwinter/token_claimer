@@ -1,6 +1,6 @@
-use anchor_lang::prelude::*;
 use solana_program::program_error::ProgramError;
-use anchor_spl::token::{self, Transfer, TokenAccount, Token};
+use anchor_lang::prelude::*;
+use anchor_spl::token::{self, Token, Transfer, TokenAccount};
 
 declare_id!("E2dMh4oEcsPJqfy13vdFqLy52W1tbws4n5jQ5j9XLP5G");
 
@@ -64,9 +64,10 @@ pub struct ClaimRecord {
 
 #[derive(Accounts)]
 pub struct ClaimTokens<'info> {
-    #[account(mut)]
     pub claim_record: Account<'info, ClaimRecord>,
+    #[account(mut)]
     pub from: Account<'info, TokenAccount>,
+    #[account(mut)]
     pub to: Account<'info, TokenAccount>,
     pub token_program: Program<'info, Token>,
     pub authority: Signer<'info>,

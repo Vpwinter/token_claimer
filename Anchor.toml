@@ -1,4 +1,5 @@
 [toolchain]
+channel = "1.75.0-x86_64-unknown-linux-gnu"
 
 [features]
 resolution = true
@@ -11,8 +12,11 @@ token_claimer = "E2dMh4oEcsPJqfy13vdFqLy52W1tbws4n5jQ5j9XLP5G"
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
-wallet = "~/.config/solana/id.json"
+cluster = "Devnet"
+wallet = "~/keypair.json"
 
 [scripts]
 test = "yarn run mocha -t 1000000 tests/"
+
+[rust]
+version = "1.75.0"
